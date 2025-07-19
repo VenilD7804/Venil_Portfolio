@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -142,6 +142,11 @@
       height: 180px;
       object-fit: cover;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      transition: transform 0.4s ease;
+    }
+
+    .project-card:hover img {
+      transform: scale(1.05);
     }
 
     .project-content {
@@ -247,6 +252,84 @@
       animation: float 4s ease-in-out infinite;
     }
   </style>
+
+   <!-- Updated styles for Tech Demo Video -->
+  <style>
+    .tech-demo-container {
+      margin-top: 40px;
+      display: flex;
+      gap: 30px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      padding: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .tech-demo-video {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .tech-demo-video video {
+      width: 100%;
+      border-radius: 12px;
+      display: block;
+    }
+
+    .tech-demo-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .tech-demo-subtitle {
+      font-size: 0.9rem;
+      color: white; /* Changed to white */
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+      font-weight: 600;
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 7px; /* Curved borders */
+      background: var(--gradient-2); /* Blue gradient background */
+    }
+
+    .tech-demo-title {
+      font-size: 1.8rem;
+      margin-bottom: 16px;
+      color: white;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .tech-demo-description {
+      font-size: 1rem;
+      color: var(--text-subtle);
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    .tech-demo-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .tech-demo-feature {
+      background: rgba(99, 102, 241, 0.15);
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      color: var(--accent);
+    }
+
+    @media (max-width: 768px) {
+      .tech-demo-container {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 <body>
   <header class="container">
@@ -278,7 +361,7 @@
       <div class="projects-grid">
         <a href="https://play.google.com/store/apps/details?id=com.USSStudio.Pet_Doctor" target="_blank" class="project-card-link">
           <div class="project-card">
-            <img src="Images/Pet Animal.png" alt="Pet Doctor">
+            <img src="https://raw.githubusercontent.com/venildhameliya/Venil_Portfolio/main/Peak%20Courage.png" alt="Pet Doctor">
             <div class="project-content">
               <h3>Pet Doctor</h3>
               <p>An engaging mobile game where you manage a virtual pet clinic. Explore realistic game logic and captivating challenges.</p>
@@ -288,7 +371,7 @@
 
         <a href="https://www.meta.com/experiences/peak-courage/9292506870770117/" target="_blank" class="project-card-link">
           <div class="project-card">
-            <img src="Images/Peak Courage.png" alt="Peak Courage VR">
+            <img src="https://raw.githubusercontent.com/venildhameliya/Venil_Portfolio/main/Pet%20Animal.png" alt="Peak Courage VR">
             <div class="project-content">
               <h3>Peak Courage VR</h3>
               <p>An immersive virtual reality project that pushes the boundaries of VR game design with innovative mechanics and breathtaking environments.</p>
@@ -298,13 +381,34 @@
 
         <a href="https://play.google.com/store/apps/details?id=com.USStudio.SnakeVsBlocks" target="_blank" class="project-card-link">
           <div class="project-card">
-            <img src="Images/SnakeVsBlocks.png" alt="Snake Vs Blocks">
+            <img src="https://raw.githubusercontent.com/venildhameliya/Venil_Portfolio/main/SnakeVsBlocks.png" alt="Snake Vs Blocks">
             <div class="project-content">
               <h3>Snake Vs Blocks</h3>
               <p>A dynamic arcade game with a modern twist on classic snake mechanics. Dodge obstacles and challenge your reflexes to score high.</p>
             </div>
           </div>
         </a>
+      </div>
+
+      <!-- Tech Demo Video Section with description on the right -->
+      <div class="tech-demo-container">
+        <div class="tech-demo-video">
+          <video controls>
+            <source src="VRVolleyball.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="tech-demo-content">
+          <div class="tech-demo-subtitle">TECH DEMO</div>
+          <h3 class="tech-demo-title">VR Volleyball Prototype</h3>
+          <p class="tech-demo-description">Step inside a meticulously designed volleyball court where every aspect of gameplay is crafted for immersion. Experience a true-to-life match with responsive ball behavior, accurate net physics, and a vibrant, detailed court atmosphere—all contained within the court.</p>
+          <div class="tech-demo-features">
+            <div class="tech-demo-feature">Unity Meta & Interaction Toolkit</div>
+            <div class="tech-demo-feature">Meta Quest 2/3 Optimized</div>
+            <div class="tech-demo-feature">Multiplayer support (In Progress)</div>
+            <div class="tech-demo-feature">Physics-based ball interaction</div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -335,8 +439,8 @@
     document.addEventListener('mousemove', (e) => {
       document.querySelectorAll('section').forEach(element => {
         const rect = element.getBoundingClientRect();
-        element.style.setProperty('--x', ${e.clientX - rect.left}px);
-        element.style.setProperty('--y', ${e.clientY - rect.top}px);
+        element.style.setProperty('--x', `${e.clientX - rect.left}px`);
+        element.style.setProperty('--y', `${e.clientY - rect.top}px`);
       });
     });
   </script>
